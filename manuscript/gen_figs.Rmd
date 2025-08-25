@@ -117,7 +117,9 @@ pheno_names <- c(
 ggplot(to_plot)+
   geom_point(aes(x=Rho,y=Estimate,
                  colour=Variant),
-             alpha=0.66) +
+             alpha=0.66,
+             shape=1,
+             size=0.9) +
   geom_line(aes(x=Rho,y=Param,
                 group=Variant,
                 colour=Variant),
@@ -127,7 +129,8 @@ ggplot(to_plot)+
                     ymin=Estimate-1.96*SE_Estimate/sqrt(100),
                     ymax=Estimate+1.96*SE_Estimate/sqrt(100),
                     colour=Variant),
-                alpha=0.66)+
+                alpha=0.66,
+                width=0.05)+
   facet_grid(Model~Phenotype,scales="free_y",
              labeller=labeller(Phenotype=pheno_names)) +
   ylab("Genome-wide\n Local Ancestry Average Effect Correlation") +
